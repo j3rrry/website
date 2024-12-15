@@ -1,0 +1,26 @@
+services:
+  python-container:
+    image: python
+    container_name: python-container
+    environment:
+      TZ: Asia/Seoul
+    command: >
+      bash -c "pip3 install flask mysql-connector-python &&
+               python3 /app/app.py"
+    volumes:
+      - ./app:/app/
+    ports:
+      - 5000:5000
+
+  mysql-container:
+    image: mysql
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpassword
+    expose:
+      - 3306
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d/  # 초기화 스크립트 마운트
