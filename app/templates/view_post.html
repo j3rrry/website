@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <div>
+        <!-- 수정 버튼 -->
+        <form action="/posts/{{ post.id }}/edit" method="GET" style="display:inline;">
+            <button type="submit">수정</button>
+        </form>
+        <!-- 삭제 버튼 -->
+        <form action="/posts/{{ post.id }}" method="POST" style="display:inline;">
+            <button type="submit">삭제</button>
+        </form>
+    </div>
+    <a href="/post">뒤로가기</a>
+</body>
+</html>

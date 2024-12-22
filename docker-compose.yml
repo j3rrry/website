@@ -20,7 +20,5 @@ services:
       MYSQL_DATABASE: testdb
       MYSQL_USER: testuser
       MYSQL_PASSWORD: testpassword
-    expose:
-      - 3306
     volumes:
       - ./mysql:/docker-entrypoint-initdb.d/  # 초기화 스크립트 마운트
